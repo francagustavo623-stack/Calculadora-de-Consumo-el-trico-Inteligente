@@ -1,0 +1,21 @@
+# Solicita o valor total da compra ao usuário
+valor_compra = float(input("Digite o valor total da compra: R$ "))
+
+# Verifica o valor da compra e define a porcentagem de desconto
+if valor_compra < 200:
+    desconto = 0.05  # Aplica 5% de desconto
+elif valor_compra < 300:
+    desconto = 0.10  # Aplica 10% de desconto
+else:
+    desconto = 0.15  # Aplica 15% de desconto
+
+# Calcula o valor do desconto em reais
+valor_desconto = valor_compra * desconto
+
+# Calcula o valor final que o cliente deverá pagar
+valor_final = valor_compra - valor_desconto
+
+# Exibe os resultados da compra
+print(f"\nValor da compra: R$ {valor_compra:.2f}")
+print(f"Desconto aplicado: R$ {valor_desconto:.2f}")
+print(f"Valor total a pagar: R$ {valor_final:.2f}")

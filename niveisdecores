@@ -1,0 +1,33 @@
+from colorama import init, Fore, Style
+
+init(autoreset=True)
+
+niveis = {
+    1: ("Muito baixo (crítico)", Fore.RED),
+    2: ("Baixo", Fore.YELLOW),
+    3: ("Médio", Fore.GREEN),
+    4: ("Alto", Fore.CYAN),
+    5: ("Muito alto (alerta)", Fore.BLUE)
+}
+
+def definir_cor(nivel):
+    return niveis[nivel][1]
+
+print("CONTROLE DE NÍVEIS DE ÁGUA")
+print("--------------------------")
+
+for nivel, (situacao, cor) in niveis.items():
+    print(cor + f"Nível {nivel}: {situacao}" + Style.RESET_ALL)
+
+try:
+    nivel_escolhido = int(input("\nDigite o nível atual da água (1 a 5): "))
+
+    if nivel_escolhido in niveis:
+        situacao = niveis[nivel_escolhido][0]
+        cor = definir_cor(nivel_escolhido)
+        print(cor + f"\nSituação do reservatório: {situacao}" + Style.RESET_ALL)
+    else:
+        print(Fore.RED + "Digite um número de 1 a 5." + Style.RESET_ALL)
+
+except ValueError:
+    print(Fore.RED + "Entrada inválida. Digite um número." + Style.RESET_ALL)
